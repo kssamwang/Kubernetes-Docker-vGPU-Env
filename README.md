@@ -121,6 +121,7 @@ sudo vi /etc/docker/daemon.json
 ```
 
 修改docker配置文件后重新启动docker。
+
 ```sh
 sudo systemctl daemon-reload
 sudo systemctl restart docker
@@ -129,6 +130,7 @@ sudo systemctl restart docker
 ### 2.4 拉取/启动一个cuda的docker容器
 
 拉取一个cuda-devel，devel含有cuda完整编译工具链，版本11.4.0，注意要写完整小版本号。
+
 版本号参考：https://gitlab.com/nvidia/container-images/cuda/blob/master/doc/supported-tags.md
 
 ```sh
@@ -138,6 +140,7 @@ docker run -it --ipc=host --gpus all -v /home/wsy --restart=always --name develo
 ```
 
 第一次下载镜像到本地时，等待时间比较长。
+
 执行该命令后，nvidia/cuda:11.4.0-devel镜像被下载到本地，可以查看已经下载的镜像。
 
 ```sh
@@ -145,7 +148,9 @@ sudo docker images
 ```
 
 以下命令，启动并进入名为develop的，基于cuda-11.4.0-devel镜像的docker容器
+
 将develop容器的home文件夹，映射到主机文件夹/home/ubuntu
+
 端口映射关系：容器develop的22端口映射到主机的224
 
 ```sh
@@ -157,7 +162,13 @@ ctrl+p+q
 ### 2.5 拉取/启动一个anaconda的docker容器
 
 和cuda-devel镜像原理一样，注意在docker中创建jupyter容器的办法。
-启动后浏览器输入http://主机ip:8888再填入返回的token即可使用jupyter
+
+启动后浏览器输入
+
+http://主机ip:8888
+
+再填入返回的token即可使用jupyter
+
 云服务器需要配置安全组策略:入站，0.0.0.0/0,允许TCP:8888
 
 ```sh
@@ -420,11 +431,13 @@ kubectl describe node master-node
 
 ### 5.6 配置flanne虚拟网桥
 此命令在master完成init后执行，执行后master才能找到node，否则node加入成功后，master上node的状态为unReady。
+
 如果node状态还是unReady，那么在node上也按照如下步骤配置网桥。
 
 ```sh
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 ```
+
 如果长时间无响应，应该是github无法访问，可以爬取到本地文件再执行。
 
 执行后，docker中有两个flannel镜像容器
