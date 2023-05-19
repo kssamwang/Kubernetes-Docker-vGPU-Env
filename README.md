@@ -1,4 +1,4 @@
-# k8s-docker-GPU-env
+# Kubernetes-Docker-vGPU-Env
 ## 项目说明
 
 搭建k8s+Docker运行GPU程序的环境，可指定分配GPU资源，实现cuda层隔离。
@@ -23,40 +23,40 @@ Kubernetes    : 1.23.6
 
 ## 步骤
 
-0. **所有node上进行** [安装NVIDIA驱动和CUDA](https://github.com/kssamwang/k8s-docker-GPU-env/tree/0-cuda)
-1. **所有node上进行** [Docker + nvidia-docker2 安装](https://github.com/kssamwang/k8s-docker-GPU-env/tree/1-docker-install)
+0. **所有node上进行** [安装NVIDIA驱动和CUDA](https://github.com/kssamwang/k8s-docker-GPU-env/tree/main/0-cuda)
+1. **所有node上进行** [Docker + nvidia-docker2 安装](https://github.com/kssamwang/k8s-docker-GPU-env/tree/main/1-docker-install)
 
-2. **所有node上进行** [k8s 环境安装 集群网络初始化](https://github.com/kssamwang/k8s-docker-GPU-env/tree/2-k8s-install)
+2. **所有node上进行** [k8s 环境安装 集群网络初始化](https://github.com/kssamwang/k8s-docker-GPU-env/tree/main/2-k8s-install)
 
     worker和master的网络配置略有不同。
 
-3. **master上进行** [helm 安装](https://github.com/kssamwang/k8s-docker-GPU-env/tree/3-helm-install)
+3. **master上进行** [helm 安装](https://github.com/kssamwang/k8s-docker-GPU-env/tree/main/3-helm-install)
 
-4. **可选** [go 安装](https://github.com/kssamwang/k8s-docker-GPU-env/tree/4-go-install)
+4. **可选** [go 安装](https://github.com/kssamwang/k8s-docker-GPU-env/tree/main/4-go-install)
 
-5. **每一node分别进行不同操作** [k8s集群创建](https://github.com/kssamwang/k8s-docker-GPU-env/tree/5-cluster-establish)
+5. **每一node分别进行不同操作** [k8s集群创建](https://github.com/kssamwang/k8s-docker-GPU-env/tree/main/5-cluster-establish)
     
     master初始化集群，每个worker加入集群。
     
     也可以在此时就配置使用cgroupfs而不是systemd作为CGroup Driver。
 
-6. **master上进行** [vgpu插件 安装](https://github.com/kssamwang/k8s-docker-GPU-env/tree/6-4paradigm-vgpu-scheduler)
+6. **master上进行** [vgpu插件 安装](https://github.com/kssamwang/k8s-docker-GPU-env/tree/main/6-4paradigm-vgpu-scheduler)
 
-7. **master上进行** [prometheus 安装](https://github.com/kssamwang/k8s-docker-GPU-env/tree/7-prometheus)
+7. **master上进行** [prometheus 安装](https://github.com/kssamwang/k8s-docker-GPU-env/tree/main/7-prometheus)
 
     注意，在worker上也要先执行pull.sh脚本，拉取代替镜像。
     
     Prometheus、Grafana、AlertManager建议开启外网访问。
 
-8. **所有node上进行** [nvidia_gpu_exporter 安装](https://github.com/kssamwang/k8s-docker-GPU-env/tree/8-nvidia_gpu_exporter)
+8. **所有node上进行** [nvidia_gpu_exporter 安装](https://github.com/kssamwang/k8s-docker-GPU-env/tree/main/8-nvidia_gpu_exporter)
 
     如果选用helm安装nvidia_gpu_exporter，只需要master操作。
 
-9. **所有node上进行** [Docker + kubelet 启用cgroupfs](https://github.com/kssamwang/k8s-docker-GPU-env/tree/9-cgroupfs)
+9. **所有node上进行** [Docker + kubelet 启用cgroupfs](https://github.com/kssamwang/k8s-docker-GPU-env/tree/main/9-cgroupfs)
     
     注意worker和master设置方式略有不同，cgroupfs v2启用内核后不用再做。
    
-10. **master上进行** [Koordinator 安装部署](https://github.com/kssamwang/k8s-docker-GPU-env/tree/A-koordinator)
+10. **master上进行** [Koordinator 安装部署](https://github.com/kssamwang/k8s-docker-GPU-env/tree/main/A-koordinator)
 
     其中Koordinator部署时，koord-runtime-proxy需要先统一启用cgroupfs。
 
@@ -64,7 +64,7 @@ Kubernetes    : 1.23.6
 
     集群搭建前配置DCGM系统服务并启动
 
-12. **master上进行** [Kubernetes DashBoard 安装部署](https://github.com/kssamwang/k8s-docker-GPU-env/tree/C-DashBoard)
+12. **master上进行** [Kubernetes DashBoard 安装部署](https://github.com/kssamwang/k8s-docker-GPU-env/tree/main/C-DashBoard)
     
     集群搭建好以后启动Kubernetes Dashboard，使用token进行外网访问
 
