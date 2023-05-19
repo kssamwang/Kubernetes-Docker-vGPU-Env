@@ -38,6 +38,5 @@ curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.li
 sudo apt-get clean 
 sudo apt-get update
 sudo apt-get install -y nvidia-docker2
-sudo systemctl start docker && sudo systemctl enable docker
 sudo systemctl daemon-reload
-sudo systemctl restart docker
+sudo systemctl --now enable docker
