@@ -1,5 +1,4 @@
-# k8s-docker-GPU-env
-搭建k8s+docker运行GPU程序的环境
+# Kubernetes-Docker-vGPU-Env
 
 ## 9 使用CGroupfs作为Docker和Kubelet的CGroup Driver
 
@@ -13,28 +12,22 @@ k8s默认CGroup Driver是systemd
 
 本分支提供将其配置为cgroupfs v2的方法
 
-## 使用方法
-
-### 1. 系统安装Cgroupfs v2
+### 9.1 系统安装Cgroupfs v2
 
 集群启动前就安装，安装后重启系统。
 
 ```sh
-cd ../cgroupfs-v2-install
+cd ./cgroupfs-v2-install
 ./install.sh
 ```
 
-## 2. 同步修改Docker/kubelet的Cgroup Driver
+## 9.2 同步修改Docker/kubelet的Cgroup Driver
 
 ```sh
-cd ../config
+cd ./config/docker
 ./config.sh [master/worker] [systemd/cgroupfs]
-cd ../
+cd ../config/kubelet
+./config.sh [systemd/cgroupfs]
+cd ../../
 ./restart.sh
-```
-
-## 3. 集群重启更换秘钥后更新PATH
-
-```sh
-./update.admin.conf.sh
 ```
