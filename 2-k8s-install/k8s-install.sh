@@ -1,3 +1,4 @@
+#!/bin/bash
 # 1 设置签名秘钥
 curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg |sudo apt-key add -
 # 2 设置k8s源
