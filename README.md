@@ -55,7 +55,7 @@ Kubernetes    : 1.23.6
 9. **所有node上进行** [Docker + kubelet 启用cgroupfs](https://github.com/kssamwang/Kubernetes-Docker-vGPU-Env/tree/main/9-cgroupfs)
     
     注意worker和master设置方式略有不同，cgroupfs v2启用内核后不用再做。
-   
+
 A. **master上进行** [Koordinator 安装部署](https://github.com/kssamwang/Kubernetes-Docker-vGPU-Env/tree/main/A-koordinator)
 
     其中Koordinator部署时，koord-runtime-proxy需要先统一启用cgroupfs。
@@ -65,7 +65,7 @@ B. **所有node上进行** [DCGM 安装部署](https://github.com/kssamwang/Kube
     集群搭建前配置DCGM系统服务并启动
 
 C. **master上进行** [Kubernetes DashBoard 安装部署](https://github.com/kssamwang/Kubernetes-Docker-vGPU-Env/tree/main/C-DashBoard)
-    
+
     集群搭建好以后启动Kubernetes Dashboard，使用token进行外网访问
 
 ## 环境搭建顺序
