@@ -1,5 +1,4 @@
 # Kubernetes-Docker-vGPU-Env
-搭建k8s+docker运行GPU程序的环境
 
 ## 1 docker GPU环境搭建
 默认已安装NVIDIA驱动，CUDA Toolkit
