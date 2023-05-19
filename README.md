@@ -45,6 +45,8 @@ Kubernetes    : 1.23.6
 7. **master上进行** [prometheus 安装](https://github.com/kssamwang/k8s-docker-GPU-env/tree/7-prometheus)
 
     注意，在worker上也要先执行pull.sh脚本，拉取代替镜像。
+    
+    Prometheus、Grafana、AlertManager建议开启外网访问。
 
 8. **所有node上进行** [nvidia_gpu_exporter 安装](https://github.com/kssamwang/k8s-docker-GPU-env/tree/8-nvidia_gpu_exporter)
 
@@ -58,12 +60,36 @@ Kubernetes    : 1.23.6
 
     其中Koordinator部署时，koord-runtime-proxy需要先统一启用cgroupfs。
 
-集群搭建前配置
+11. **所有node上进行** [DCGM 安装部署](https://github.com/kssamwang/Kubernetes-Docker-vGPU-Env/tree/main/B-DCGM)
 
-0 -> 1 -> 2 -> 3 -> 4 -> 8(deb安装版) -> 9(启用内核CGroupfs V2)
+    集群搭建前配置DCGM系统服务并启动
 
-集群搭建和服务启用
+12. **master上进行** [Kubernetes DashBoard 安装部署](https://github.com/kssamwang/k8s-docker-GPU-env/tree/C-DashBoard)
+    
+    集群搭建好以后启动Kubernetes Dashboard，使用token进行外网访问
 
-9(若使用CGroupfs代替systemd，修改配置文件) -> 5 -> { 6, 7, 8(helm安装版)} -> 10(确保9中配置文件设置了docker socket参数)
+## 环境搭建顺序
+
+### Kubernetes集群启动前
+
+上述步骤：
+
+0 -> 1 -> 2 -> 3 -> 4 -> 8(deb安装版)/B -> 9(启用内核CGroupfs V2)
+
+### Kubernetes集群启动后
+
+上述步骤：
+
+9(若使用CGroupfs代替systemd，修改配置文件) -> 5 -> { 6, 7, 8(helm安装版), C } -> 10(确保9中配置文件设置了docker socket参数)
+
+可选：
+
++ Prometheus启动后接入GPU监控数据：DCGM或nvidia-gpu-exporter
+
+    两个会竞争8080端口，功能接近，用一个就可以
+
++ Kubernetes Dashboard
+
+    集群搭建好以后就可以配置
 
 制作集群启动前的腾讯云系统镜像，开机后执行5中检查脚本即可。
