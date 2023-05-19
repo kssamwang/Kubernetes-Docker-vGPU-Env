@@ -26,6 +26,8 @@ Kubernetes    : 1.23.6
 0. **所有node上进行** [安装NVIDIA驱动和CUDA](https://github.com/kssamwang/Kubernetes-Docker-vGPU-Env/tree/main/0-cuda)
 1. **所有node上进行** [Docker + nvidia-docker2 安装](https://github.com/kssamwang/Kubernetes-Docker-vGPU-Env/tree/main/1-docker-install)
 
+    如果想在master节点上运行Golang程序直接操控其他worker上的container，必须配置tls
+
 2. **所有node上进行** [k8s 环境安装 集群网络初始化](https://github.com/kssamwang/Kubernetes-Docker-vGPU-Env/tree/main/2-k8s-install)
 
     worker和master的网络配置略有不同。
