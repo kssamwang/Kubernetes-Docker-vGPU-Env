@@ -1,9 +1,9 @@
 # Kubernetes-Docker-vGPU-Env
 ## 0. 安装cuda环境
 
-确定可用cuda版本，官网下载，https://developer.nvidia.com/cuda-toolkit-archive 推荐使用runfile(local)安装
+确定可用cuda版本，[官网](https://developer.nvidia.com/cuda-toolkit-archive)下载， 推荐使用runfile(local)安装
 
-存在驱动时，不能重复安装。以下以Ubuntu 20.04 x86——64 安装cuda 11.4版本为例：
+存在驱动时，不能重复安装。以下以Ubuntu 20.04 x86_64 安装cuda 11.4版本为例：
 
 ```sh
 nvidia-smi
