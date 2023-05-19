@@ -1,3 +1,4 @@
+#!/bin/bash
 # 安装firewalld/ipvsadm
 sudo apt install ipvsadm -y
 sudo apt-get install firewalld -y
