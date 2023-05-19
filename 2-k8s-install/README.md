@@ -1,4 +1,4 @@
-# k8s-docker-GPU-env
+# Kubernetes-Docker-vGPU-Env
 搭建k8s+docker运行GPU程序的环境
 
 ## 2 安装k8s并初始化集群设置
@@ -13,6 +13,13 @@
 
 ```sh
 ./cluster-init.sh
+```
+
+## 安装网络工具
+此步骤master和worker一样
+
+```sh
+./networktools-install.sh
 ```
 
 ## 修改主机名
