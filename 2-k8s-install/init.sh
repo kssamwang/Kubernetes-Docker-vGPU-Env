@@ -15,7 +15,9 @@ sudo echo -e "net.bridge.bridge-nf-call-iptables = 1" >> /etc/sysctl.d/kubernete
 sudo echo -e "net.ipv4.ip_forward = 1" >> /etc/sysctl.d/kubernetes.conf
 sudo sysctl --system
 # 4 设置主机名
+# sudo hostnamectl set-hostname
 # vi /etc/hosts
+# <集群中每一个node的hostname>  <集群中每一个node的内网ip> 
 # 5 关闭防火墙
 sudo setenforce 0
 sudo systemctl disable firewalld
