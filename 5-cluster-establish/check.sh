@@ -1,20 +1,21 @@
-# ¼ì²éÇı¶¯£¬cuda°æ±¾
+#!/bin/bash
+# æ£€æŸ¥é©±åŠ¨ï¼Œcudaç‰ˆæœ¬
 nvidia-smi
 nvcc -V
-# ¼ì²éÊÇ·ñÆôÓÃcgroupfs v2
+# æ£€æŸ¥æ˜¯å¦å¯ç”¨cgroupfs v2
 cat /sys/fs/cgroup/cgroup.controllers
-# ¼ì²édocker°²×°ÅäÖÃÊÇ·ñÕı³££¬ÅäÖÃÎÄ¼şmasterºÍworker²»Ò»ÖÂ
+# æ£€æŸ¥dockerå®‰è£…é…ç½®æ˜¯å¦æ­£å¸¸ï¼Œé…ç½®æ–‡ä»¶masterå’Œworkerä¸ä¸€è‡´
 docker version
 docker info | grep Cgroup
 systemctl status docker
 cat /etc/docker/daemon.json
-# ¼ì²ék8sÊÇ·ñ°²×°ÕıÈ·°æ±¾
+# æ£€æŸ¥k8sæ˜¯å¦å®‰è£…æ­£ç¡®ç‰ˆæœ¬
 kubeadm version
 kubelet --version
 kubectl version --client
-# ¼ì²éÓĞÎŞ½»»»ÄÚ´æ£¬swapĞĞÓ¦¸ÃÈ«²¿Îª¿Õ
+# æ£€æŸ¥æœ‰æ— äº¤æ¢å†…å­˜ï¼Œswapè¡Œåº”è¯¥å…¨éƒ¨ä¸ºç©º
 free -m
-# ¼ì²é·À»ğÇ½ÊÇ·ñ¹Ø±Õ
+# æ£€æŸ¥é˜²ç«å¢™æ˜¯å¦å…³é—­
 systemctl ststus firewalld
-# ¼ì²éÖ÷»úÈºÍøÂçÖ÷»úÃûºÍÄÚÍøIP¶ÔÓ¦±í
+# æ£€æŸ¥ä¸»æœºç¾¤ç½‘ç»œä¸»æœºåå’Œå†…ç½‘IPå¯¹åº”è¡¨
 cat /etc/hosts
