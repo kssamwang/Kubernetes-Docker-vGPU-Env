@@ -1,10 +1,9 @@
-#!/bin/bash
-# 1 ÉèÖÃÇ©ÃûÃØÔ¿
+# 1 è®¾ç½®ç­¾åç§˜é’¥
 curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg |sudo apt-key add -
-# 2 ÉèÖÃk8sÔ´
+# 2 è®¾ç½®k8sæº
 sudo echo -e "deb https://mirrors.aliyun.com/kubernetes/apt kubernetes-xenial main" >> /etc/apt/sources.list
 sudo apt-get update
-# 3 °²×°k8sÈí¼ş
+# 3 å®‰è£…k8sè½¯ä»¶
 sudo apt install kubeadm=1.23.6-00 kubelet=1.23.6-00 kubectl=1.23.6-00 -y
 sudo apt-mark hold kubeadm kubelet kubectl
 kubeadm version
