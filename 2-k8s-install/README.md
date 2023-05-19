@@ -1,28 +1,22 @@
 # Kubernetes-Docker-vGPU-Env
 
 ## 2 安装k8s并初始化集群设置
+以下步骤master和worker一样
+
 ### 2.1 安装k8s软件
-此步骤master和worker一样
 
 ```sh
 ./k8s-install.sh
 ```
 
-## 2.2 集群需要的系统设置初始化
-此步骤master和worker一样
-
-```sh
-./cluster-init.sh
-```
-
-## 2.3 安装网络工具
+## 2.2 安装网络工具
 此步骤master和worker一样
 
 ```sh
 ./utils-install.sh
 ```
 
-## 2.4 修改主机名
+## 2.3 修改主机名
 ```sh
 sudo hostnamectl set-hostname worker01
 ```
@@ -51,8 +45,8 @@ ff02::2 ip6-allrouters
 ff02::3 ip6-allhosts
 ```
 
-## 2.5 集群需要的网络环境初始化
+## 2.4 集群需要的系统配置和网络环境初始化
 
 ```sh
-./network-init.sh
+./init.sh
 ```
