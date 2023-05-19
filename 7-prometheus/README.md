@@ -2,6 +2,17 @@
 
 ## 7. k8s安装配置Prometheus
 
+完成了修复镜像的[kube-prometheus项目](https://github.com/kssamwang/kube-prometheus)
+
+嫌烦直接跳过1,2,3，使用脚本配置。
+
+```sh
+./pull.sh
+./create.sh
+```
+
+然后参考7.4配置外网访问。
+
 ### 7.1 下载kube-prometheus包安装
 
 选择版本v0.10.0
