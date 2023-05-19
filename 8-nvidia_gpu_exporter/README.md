@@ -1,5 +1,4 @@
-# k8s-docker-GPU-env
-搭建k8s+docker运行GPU程序的环境
+# Kubernetes-Docker-vGPU-Env
 
 ## 8 安装nvidia-gpu-exporter
 有以下两种安装方法
