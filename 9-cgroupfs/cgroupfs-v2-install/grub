@@ -1,0 +1,12 @@
+# If you change this file, run 'update-grub' afterwards to update
+# /boot/grub/grub.cfg.
+# For full documentation of the options in this file, see:
+#   info -f grub -n 'Simple configuration'
+
+GRUB_DEFAULT=1
+#GRUB_HIDDEN_TIMEOUT=0
+GRUB_HIDDEN_TIMEOUT_QUIET=true
+GRUB_TIMEOUT=1
+GRUB_DISTRIBUTOR=Ubuntu
+GRUB_CMDLINE_LINUX_DEFAULT=""
+GRUB_CMDLINE_LINUX="net.ifnames=0 biosdevname=0 console=ttyS0,115200 console=tty0 panic=5 intel_idle.max_cstate=1 intel_pstate=disable processor.max_cstate=1 amd_iommu=on iommu=pt crashkernel=2G-16G:512M,16G-:768M systemd.unified_cgroup_hierarchy=1"
