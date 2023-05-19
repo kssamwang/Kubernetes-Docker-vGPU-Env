@@ -1,19 +1,21 @@
 #!/bin/bash
-# ²¿Êğ¼¯ÈºµÄÍøÂç×¼±¸£¬´Ë²½ÖèmasterºÍworkerÒ»Ñù
-# 1 ½ûÓÃ½»»»ÄÚ´æ
+# éƒ¨ç½²é›†ç¾¤çš„ç½‘ç»œå‡†å¤‡ï¼Œæ­¤æ­¥éª¤masterå’Œworkerä¸€æ ·
+# 0 å…ˆå®‰è£…äº†ç½‘ç»œå·¥å…· ./utils-install.sh
+# 1 ç¦ç”¨å†…å­˜äº¤æ¢
 sudo swapoff -a
 sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
-# 2 ÉèÖÃÈİÆ÷Ä£¿é²¢Ìí¼Ó
+# 2 è®¾ç½®å®¹å™¨æ¨¡å—å¹¶æ·»åŠ 
 sudo echo -e "overlay" >> /etc/modules-load.d/containerd.conf
 sudo echo -e "br_netfilter" >> /etc/modules-load.d/containerd.conf
 sudo modprobe overlay
 sudo modprobe br_netfilter
-# 3 ÅäÖÃk8sÍøÂç²¢ÖØĞÂ¼ÓÔØÏµÍ³ÍøÂçÉèÖÃ
+# 3 é…ç½®k8sç½‘ç»œå¹¶é‡æ–°åŠ è½½ç³»ç»Ÿç½‘ç»œè®¾ç½®
 sudo echo -e "net.bridge.bridge-nf-call-ip6tables = 1" >> /etc/sysctl.d/kubernetes.conf
 sudo echo -e "net.bridge.bridge-nf-call-iptables = 1" >> /etc/sysctl.d/kubernetes.conf
 sudo echo -e "net.ipv4.ip_forward = 1" >> /etc/sysctl.d/kubernetes.conf
 sudo sysctl --system
-# 4 ÉèÖÃÃ¿Ò»½áµãµÄÖ÷»úÃû
-# 5 ¹Ø±Õ·À»ğÇ½
-sudo apt install selinux-utils
+# 4 è®¾ç½®ä¸»æœºå
+# vi /etc/hosts
+# 5 å…³é—­é˜²ç«å¢™
 sudo setenforce 0
+sudo systemctl disable firewalld
