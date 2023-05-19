@@ -1,6 +1,9 @@
 # Kubernetes-Docker-vGPU-Env
 
 ## 8. GPU插件nvidia_gpu_exporter配置
+
+建议方式：1,2 安装系统服务，再使用4接入prometheus
+
 ### 8.1 下载安装
 多种安装方式：
 https://github.com/utkuozdemir/nvidia_gpu_exporter/blob/master/INSTALL.md
