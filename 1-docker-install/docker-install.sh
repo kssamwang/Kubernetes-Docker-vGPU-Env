@@ -8,7 +8,6 @@ fi
 
 node=$1
 mkdir -p /etc/docker
-
 if [ $node == 'master' ] ; then
 	cp -f ./master-daemon.json /etc/docker/daemon.json
 elif [ $node == 'worker' ] ; then
@@ -18,21 +17,21 @@ else
 	exit
 fi
 
-#### Step 1: °²×°±ØÒªµÄÒ»Ğ©ÏµÍ³¹¤¾ß
+#### Step 1: å®‰è£…å¿…è¦çš„ä¸€äº›ç³»ç»Ÿå·¥å…·
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
-#### Step 2: °²×°GPGÖ¤Êé
+#### Step 2: å®‰è£…GPGè¯ä¹¦
 curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
-#### Step 3: Ğ´ÈëÈí¼şÔ´ĞÅÏ¢,ÉèÖÃÎÈ¶¨°æ²Ö¿â
+#### Step 3: å†™å…¥è½¯ä»¶æºä¿¡æ¯,è®¾ç½®ç¨³å®šç‰ˆä»“åº“
 sudo add-apt-repository "deb https://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable"
-#### Step 4: ²é¿´¿ÉÒÔ°²×°µÄdockerÎÈ¶¨°æ±¾£¬Ñ¡Ôñ20.10.12
+#### Step 4: æŸ¥çœ‹å¯ä»¥å®‰è£…çš„dockerç¨³å®šç‰ˆæœ¬ï¼Œé€‰æ‹©20.10.12
 sudo apt-cache madison docker-ce
 sudo apt-cache madison docker-ce-cli
 sudo apt-cache madison containerd.io
 sudo apt-get install -y docker-ce=5:20.10.12~3-0~ubuntu-focal docker-ce-cli=5:20.10.12~3-0~ubuntu-focal containerd.io
-#### Step 5£ºÈ·ÈÏ°æ±¾£¬Æô¶¯docker
+#### Step 5ï¼šç¡®è®¤ç‰ˆæœ¬ï¼Œå¯åŠ¨docker
 docker version
-### 2.2 °²×°nvidia-docker2
+### 2.2 å®‰è£…nvidia-docker2
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID) 
 curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add - 
 curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
