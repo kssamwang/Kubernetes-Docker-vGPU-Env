@@ -1,0 +1,36 @@
+#!/bin/bash
+docker pull kssamwang/gx-plug:v3.0-GraphX
+docker pull registry.cn-beijing.aliyuncs.com/koordinator-sh/koordlet:v1.2.0
+docker pull registry.cn-beijing.aliyuncs.com/koordinator-sh/koord-scheduler:v1.2.0
+docker pull registry.cn-beijing.aliyuncs.com/koordinator-sh/koord-descheduler:v1.2.0
+docker pull registry.cn-beijing.aliyuncs.com/koordinator-sh/koord-manager:v1.2.0
+docker pull 4pdosc/k8s-vdevice:v2.2.13
+docker pull flannel/flannel:v0.21.4
+docker pull registry.aliyuncs.com/google_containers/kube-apiserver:v1.23.17
+docker pull registry.aliyuncs.com/google_containers/kube-scheduler:v1.23.17
+docker pull registry.aliyuncs.com/google_containers/kube-controller-manager:v1.23.17
+docker pull registry.aliyuncs.com/google_containers/kube-proxy:v1.23.17
+docker pull nvidia/cuda:11.4.0-devel-ubuntu20.04
+docker pull flannel/flannel-cni-plugin:v1.1.2
+docker pull registry.aliyuncs.com/google_containers/kube-apiserver:v1.23.6
+docker pull registry.aliyuncs.com/google_containers/kube-controller-manager:v1.23.6
+docker pull registry.aliyuncs.com/google_containers/kube-proxy:v1.23.6
+docker pull registry.aliyuncs.com/google_containers/kube-scheduler:v1.23.6
+docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-scheduler:v1.23.6
+docker pull bitnami/kube-state-metrics:2.3.0
+docker pull quay.io/prometheus-operator/prometheus-config-reloader:v0.53.1
+docker pull quay.io/prometheus-operator/prometheus-operator:v0.53.1
+docker pull quay.io/prometheus/prometheus:v2.32.1
+docker pull grafana/grafana:8.3.3
+docker pull quay.io/prometheus/node-exporter:v1.3.1
+docker pull registry.aliyuncs.com/google_containers/etcd:3.5.1-0
+docker pull lbbi/prometheus-adapter:v0.9.1
+docker tag docker.io/lbbi/prometheus-adapter:v0.9.1 k8s.gcr.io/prometheus-adapter:v0.9.1
+docker pull registry.aliyuncs.com/google_containers/coredns:v1.8.6
+docker pull registry.aliyuncs.com/google_containers/pause:3.6
+docker pull quay.io/prometheus/alertmanager:v0.23.0
+docker pull quay.io/brancz/kube-rbac-proxy:v0.11.0
+docker pull quay.io/prometheus/blackbox-exporter:v0.19.0
+docker pull jimmidyson/configmap-reload:v0.5.0
+docker pull kubernetesui/dashboard:v2.0.0
+docker pull kubernetesui/metrics-scraper:v1.0.4
