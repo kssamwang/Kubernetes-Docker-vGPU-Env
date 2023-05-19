@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ ! -f "" ];then
+if [ ! -f "nvidia-gpu-exporter_1.2.0_linux_amd64.deb" ];then
 	wget  https://github.com/utkuozdemir/nvidia_gpu_exporter/releases/download/v1.2.0/nvidia-gpu-exporter_1.2.0_linux_amd64.deb
 fi
 sudo dpkg -i nvidia-gpu-exporter_1.2.0_linux_amd64.deb
