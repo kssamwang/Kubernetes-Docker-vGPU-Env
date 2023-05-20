@@ -6,7 +6,6 @@ spec:
   containers:
   - name: test-container-1
     image: kssamwang/gx-plug:v3.0-GraphX
-    args:
     command: ["bash", "-c", "sleep 86400"]
     resources:
       requests:
