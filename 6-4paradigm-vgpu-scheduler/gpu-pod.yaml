@@ -3,12 +3,27 @@ kind: Pod
 metadata:
   name: gpu-pod
 spec:
+  hostNetwork: true
+  hostIPC: true
   containers:
-  - name: ubuntu-container
-    image: ubuntu:20.04
+  - name: test-container
+    image: kssamwang/gx-plug:v3.0-GraphX
     command: ["bash", "-c", "sleep 86400"]
     resources:
+      requests:
+        cpu: 4
+        memory: "8000M"
       limits:
+        cpu: 8
+        memory: "16000M"
         nvidia.com/gpu: 1 # 请求1个vGPUs
         nvidia.com/gpumem: 3000 # 每个vGPU申请3000m显存 （可选，整数类型）
         nvidia.com/gpucores: 30 # 每个vGPU的算力为30%实际显卡的算力 （可选，整数类型）
+    volumeMounts:
+      - mountPath: /dev/shm # 容器挂载共享内存
+        name: shm
+  volumes:
+    - name: shm
+      hostPath:
+        path: /dev/shm # pod挂载共享内存
+        type: Directory
